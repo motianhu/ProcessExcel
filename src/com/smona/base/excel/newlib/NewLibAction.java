@@ -1,29 +1,17 @@
 package com.smona.base.excel.newlib;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.smona.base.excel.action.AbstractAction;
+
 import jxl.Cell;
 import jxl.Sheet;
-import jxl.Workbook;
-import jxl.read.biff.BiffException;
 
-public class NewLibAction {
-    
-    public void readExcel(String xlsFile) throws BiffException,
-            IOException {
-        Workbook rwb = null;
+public class NewLibAction extends AbstractAction {
+
+    public void readExcel(Sheet sheet) {
         Cell cell = null;
-        // 创建输入流
-        InputStream stream;
-        stream = new FileInputStream(xlsFile);
-        // 获取Excel文件对象
-        rwb = Workbook.getWorkbook(stream);
-        // 获取文件的指定工作表 默认的第一个
-        Sheet sheet = rwb.getSheet(0);
         List<QueryCarBillListVo> datas = new ArrayList<QueryCarBillListVo>();
         QueryCarBillListVo vo = null;
         // 行数(表头的目录不需要，从1开始)
