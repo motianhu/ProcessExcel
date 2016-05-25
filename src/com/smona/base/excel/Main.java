@@ -12,9 +12,13 @@ public class Main {
     }
 
     private static void readNewLib(String currFilePath) {
-        String xlsFile = currFilePath + "/data.xls";
+        String carBrandFile = currFilePath + "/sqlResult_581995.csv";
+        String carSetFile = currFilePath + "/sqlResult_581999.csv";
+        String carTypeFile = currFilePath + "/sqlResult_582002.csv";
         NewLibAction action = new NewLibAction();
-        action.readExcel(xlsFile);
+        action.readCarBrand(carBrandFile);
+        action.readCarSet(carSetFile);
+        action.readCarType(carTypeFile);
     }
 
     private static void readOldLib(String currFilePath) {
