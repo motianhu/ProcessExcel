@@ -7,10 +7,11 @@ public abstract class CSVAction implements IAction {
 
     @Override
     public void readFile(String xlsFile) {
-        List<String> datas = CSVUtils.importCsv(new File(xlsFile));
+        List<String> datas = CSVUtils.importCsv(new File(xlsFile), getEncode());
         readFile(datas);
     }
 
+    abstract protected String getEncode();
     abstract protected void readFile(List<String> datas);
 
 }

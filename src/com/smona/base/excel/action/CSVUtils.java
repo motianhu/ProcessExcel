@@ -77,13 +77,13 @@ public class CSVUtils {
      *            csv文件(路径+文件)
      * @return
      */
-    public static List<String> importCsv(File file) {
+    public static List<String> importCsv(File file, String encode) {
         List<String> dataList = new ArrayList<String>();
 
         BufferedReader br = null;
         try {
             InputStreamReader isr = new InputStreamReader(new FileInputStream(
-                    file), "GB2312");
+                    file), encode);
             br = new BufferedReader(isr);
             String line = "";
             while ((line = br.readLine()) != null) {

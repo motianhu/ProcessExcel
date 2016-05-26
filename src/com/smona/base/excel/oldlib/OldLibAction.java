@@ -23,7 +23,7 @@ public class OldLibAction extends XlsAction {
         QueryCarBillListVo vo = null;
         // 行数(表头的目录不需要，从1开始)
         int column = 0;
-        for (int i = 2; i < sheet.getRows(); i++) {
+        for (int i = 1; i < sheet.getRows(); i++) {
             try {
                 vo = new QueryCarBillListVo();
                 column = 0;
@@ -218,9 +218,10 @@ public class OldLibAction extends XlsAction {
 
                 mCellDatas.add(vo);
             } catch (Exception e) {
-                System.out.println("Exception " + vo);
+                
             }
         }
+        System.out.println("size: " + sheet.getRows() + ", valide:" + mCellDatas.size());
     }
 
 }

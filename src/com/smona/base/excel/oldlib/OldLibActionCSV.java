@@ -26,212 +26,193 @@ public class OldLibActionCSV extends CSVAction {
                 String[] splits = vos.get(i).split(",");
 
                 column = 0;
-
                 content = splits[column];
-                vo.setCarBrandName(content.substring(1, content.length() - 1));
+                vo.setCarBrandName(content);
 
                 column++;
                 content = splits[column];
-                vo.setCarSetName(content.substring(1, content.length() - 1));
+                vo.setCarSetName(content);
 
                 // 评估单号
                 column++;
                 content = splits[column];
-                vo.setCarBillId(content.substring(1, content.length() - 1));
+                vo.setCarBillId(content);
                 // 车主
                 column++;
                 content = splits[column];
-                vo.setCarUserName(content.substring(1, content.length() - 1));
+                vo.setCarUserName(content);
                 // 车牌号码
                 column++;
                 content = splits[column];
-                vo.setCarNo(content.substring(1, content.length() - 1));
+                vo.setCarNo(content);
                 // 排量
                 column++;
                 content = splits[column];
-                vo.setCarDisplace(content.substring(1, content.length() - 1));
+                vo.setCarDisplace(content);
                 // 功率
                 column++;
                 content = splits[column];
-                vo.setPower(Double.valueOf(content.substring(1,
-                        content.length() - 1)));
+                vo.setPower(Double.valueOf(content));
                 // 发动机号
                 column++;
                 content = splits[column];
-                vo.setEngineNum(content.substring(1, content.length() - 1));
+                vo.setEngineNum(content);
                 // 车架号
                 column++;
                 content = splits[column];
-                vo.setCarFrameNum(content.substring(1, content.length() - 1));
+                vo.setCarFrameNum(content);
                 // 登记日期
                 column++;
                 content = splits[column];
-                vo.setRegDate(content.substring(1, content.length() - 1));
+                vo.setRegDate(content);
                 // 出厂日期
                 column++;
                 content = splits[column];
-                vo.setProductionDate(content.substring(1, content.length() - 1));
+                vo.setProductionDate(content);
                 // 环保标准
                 column++;
                 content = splits[column];
-                vo.setEnvironmentType(content.substring(1, content.length() - 1));
+                vo.setEnvironmentType(content);
                 // 公里数
                 column++;
                 content = splits[column];
-                vo.setRunNum(Integer.valueOf(content.substring(1,
-                        content.length() - 1)));
+                vo.setRunNum(Integer.valueOf(content));
                 // 车牌型号
                 column++;
                 content = splits[column];
-                vo.setLabelTypeNum(content.substring(1, content.length() - 1));
+                vo.setLabelTypeNum(content);
                 // 车辆类型
                 column++;
                 content = splits[column];
-                vo.setCarTypeInfo(content.substring(1, content.length() - 1));
+                vo.setCarTypeInfo(content);
                 // 品牌
                 column++;
                 content = splits[column];
-                vo.setCarBrandName(content.substring(1, content.length() - 1));
+                vo.setCarBrandName(content);
                 // 车系
                 column++;
                 content = splits[column];
-                vo.setCarSetName(content.substring(1, content.length() - 1));
+                vo.setCarSetName(content);
                 // 车型
                 column++;
                 content = splits[column];
-                vo.setCarTypeName(content.substring(1, content.length() - 1));
+                vo.setCarTypeName(content);
                 // 座位数
                 column++;
                 content = splits[column];
-                vo.setSeat(content.substring(1, content.length() - 1));
+                vo.setSeat(content);
                 // 颜色
                 column++;
                 content = splits[column];
-                vo.setColor(content.substring(1, content.length() - 1));
+                vo.setColor(content);
                 // 年审有效期
                 column++;
                 content = splits[column];
-                vo.setYearCheckDate(content.substring(1, content.length() - 1));
+                vo.setYearCheckDate(content);
                 // 提报人手机号
                 column++;
                 content = splits[column];
-                vo.setTakeUserPhone(content.substring(1, content.length() - 1));
+                vo.setTakeUserPhone(content);
                 // escysjg
                 column++;
                 content = splits[column];
-                vo.setPreSalePrice(Double.valueOf(content.substring(1,
-                        content.length() - 1)));
+                vo.setPreSalePrice(Double.valueOf(content));
                 // 使用性质
                 column++;
                 content = splits[column];
-                vo.setUseNature(content.substring(1, content.length() - 1));
+                vo.setUseNature(content);
                 // 变速箱形式
                 column++;
                 content = splits[column];
-                vo.setChangeSpeed(content.substring(1, content.length() - 1));
+                vo.setChangeSpeed(content);
                 // 车门型式
                 column++;
                 content = splits[column];
-                vo.setCarDoor(content.substring(1, content.length() - 1));
+                vo.setCarDoor(content);
                 // 传动方式
                 column++;
                 content = splits[column];
-                vo.setDriveType(content.substring(1, content.length() - 1));
+                vo.setDriveType(content);
                 // 供油系统
                 column++;
                 content = splits[column];
-                vo.setOilSystem(content.substring(1, content.length() - 1));
+                vo.setOilSystem(content);
                 // 进气方式
                 column++;
                 content = splits[column];
-                vo.setAirSystem(content.substring(1, content.length() - 1));
+                vo.setAirSystem(content);
                 // 特殊车管业务
                 column++;
                 content = splits[column];
-                vo.setSpecialBizInfo(content.substring(1, content.length() - 1));
+                vo.setSpecialBizInfo(content);
                 // 特殊配置说明
                 column++;
                 content = splits[column];
-                vo.setSpecialConfigInfo(content.substring(1,
-                        content.length() - 1));
+                vo.setSpecialConfigInfo(content);
                 // 备注
                 column++;
                 content = splits[column];
-                vo.setCarInfoMark(content.substring(1, content.length() - 1));
+                vo.setCarInfoMark(content);
                 // 新车价格
                 column++;
                 content = splits[column];
-                vo.setNewCarPrice(Double.valueOf(content.substring(1,
-                        content.length() - 1)));
+                vo.setNewCarPrice(Double.valueOf(content));
                 // 优惠价
                 column++;
                 content = splits[column];
-                vo.setFavorablePrice(Double.valueOf(content.substring(1,
-                        content.length() - 1)));
+                vo.setFavorablePrice(Double.valueOf(content));
                 // 购置税
                 column++;
                 content = splits[column];
-                vo.setPurchaseTax(Double.valueOf(content.substring(1,
-                        content.length() - 1)));
+                vo.setPurchaseTax(Double.valueOf(content));
                 // 购入价
                 column++;
                 content = splits[column];
-                vo.setPurchasePrice(Double.valueOf(content.substring(1,
-                        content.length() - 1)));
+                vo.setPurchasePrice(Double.valueOf(content));
                 // 成新率
                 column++;
                 content = splits[column];
-                vo.setNewRate(Integer.valueOf(content.substring(1,
-                        content.length() - 1)));
+                vo.setNewRate(Integer.valueOf(content));
                 // 车龄调整
                 column++;
                 content = splits[column];
-                vo.setCarAgeChange(Double.valueOf(content.substring(1,
-                        content.length() - 1)));
+                vo.setCarAgeChange(Double.valueOf(content));
                 // 市场冷热
                 column++;
                 content = splits[column];
-                vo.setMarketDeep(Double.valueOf(content.substring(1,
-                        content.length() - 1)));
+                vo.setMarketDeep(Double.valueOf(content));
                 // 更新换代
                 column++;
                 content = splits[column];
-                vo.setUpgrading(Double.valueOf(content.substring(1,
-                        content.length() - 1)));
+                vo.setUpgrading(Double.valueOf(content));
                 // 车龄版本系数
                 column++;
                 content = splits[column];
-                vo.setCarVersionParam(Double.valueOf(content.substring(1,
-                        content.length() - 1)));
+                vo.setCarVersionParam(Double.valueOf(content));
                 // 公里系数
                 column++;
                 content = splits[column];
-                vo.setRunParam(Double.valueOf(content.substring(1,
-                        content.length() - 1)));
+                vo.setRunParam(Double.valueOf(content));
                 // 车况等级
                 column++;
                 content = splits[column];
-                vo.setCarCondition(Double.valueOf(content.substring(1,
-                        content.length() - 1)));
+                vo.setCarCondition(Double.valueOf(content));
                 // 颜色系数
                 column++;
                 content = splits[column];
-                vo.setColorParam(Double.valueOf(content.substring(1,
-                        content.length() - 1)));
+                vo.setColorParam(Double.valueOf(content));
                 // 整修费
                 column++;
                 content = splits[column];
-                vo.setRepairCost(Double.valueOf(content.substring(1,
-                        content.length() - 1)));
+                vo.setRepairCost(Double.valueOf(content));
                 // 评估价格
                 column++;
                 content = splits[column];
-                vo.setEvaluatePrice(Integer.valueOf(content.substring(1,
-                        content.length() - 1)));
+                vo.setEvaluatePrice(Integer.valueOf(content));
                 // 评估日期
                 column++;
                 content = splits[column];
-                vo.setEvaluateDate(content.substring(1, content.length() - 1));
+                vo.setEvaluateDate(content);
 
                 mcontentDatas.add(vo);
             } catch (Exception e) {
@@ -239,5 +220,10 @@ public class OldLibActionCSV extends CSVAction {
             }
         }
     }
+    
+	@Override
+	protected String getEncode() {
+		return "UTF-8";
+	}
 
 }

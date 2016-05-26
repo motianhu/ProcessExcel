@@ -7,7 +7,7 @@ import com.smona.base.excel.action.CSVAction;
 import com.smona.base.excel.action.IAction;
 import com.smona.base.excel.action.ICallback;
 import com.smona.base.excel.action.QueryCarBillListVo;
-import com.smona.base.excel.oldlib.OldLibActionCSV;
+import com.smona.base.excel.oldlib.OldLibAction;
 
 public class NewLibActionCSV extends CSVAction implements ICallback {
     private List<CarDatas> mCarDatas = new ArrayList<CarDatas>();
@@ -62,12 +62,12 @@ public class NewLibActionCSV extends CSVAction implements ICallback {
         }
 
         for (CarDatas carBrand : mCarDatas) {
-            System.out.println(carBrand);
+            //System.out.println(carBrand);
         }
     }
 
     public void startMatch() {
-        OldLibActionCSV action = (OldLibActionCSV) mOldAction;
+    	OldLibAction action = (OldLibAction) mOldAction;
         List<QueryCarBillListVo> datas = action.getCellDatas();
         List<QueryCarBillListVo> result = new ArrayList<QueryCarBillListVo>();
         int size = 0;
@@ -81,8 +81,14 @@ public class NewLibActionCSV extends CSVAction implements ICallback {
                 }
             }
             if (size == result.size()) {
-                System.out.println(data);
+                //System.out.println(data);
             }
         }
+        System.out.println("can insert: " + result.size() + ", source: " + datas.size());
     }
+
+	@Override
+	protected String getEncode() {
+		return "GB2312";
+	}
 }

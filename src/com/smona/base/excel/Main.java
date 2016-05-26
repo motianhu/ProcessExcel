@@ -3,7 +3,7 @@ package com.smona.base.excel;
 import com.smona.base.excel.action.IAction;
 import com.smona.base.excel.action.ICallback;
 import com.smona.base.excel.newlib.NewLibActionCSV;
-import com.smona.base.excel.oldlib.OldLibActionCSV;
+import com.smona.base.excel.oldlib.OldLibAction;
 
 public class Main {
 
@@ -23,8 +23,8 @@ public class Main {
     }
 
     private static IAction readOldLib(String currFilePath) {
-        String xlsFile = currFilePath + "/data.csv";
-        OldLibActionCSV action = new OldLibActionCSV();
+        String xlsFile = currFilePath + "/111.xls";
+        OldLibAction action = new OldLibAction();
         action.readFile(xlsFile);
         return action;
     }
