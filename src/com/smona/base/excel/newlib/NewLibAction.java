@@ -5,69 +5,86 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.smona.base.excel.action.CSVUtils;
+import com.smona.base.excel.action.IAction;
+import com.smona.base.excel.action.ICallback;
+import com.smona.base.excel.action.QueryCarBillListVo;
+import com.smona.base.excel.oldlib.OldLibAction;
 
-public class NewLibAction {
-	private List<CarBrand> mCarBrands = new ArrayList<CarBrand>();
-	private List<CarSet> mCarSets = new ArrayList<CarSet>();
-	private List<CarType> mCarTypes = new ArrayList<CarType>();
+public class NewLibAction implements IAction, ICallback {
+    private List<CarDatas> mCarDatas = new ArrayList<CarDatas>();
 
-	public void readCarBrand(String file) {
-		List<String> brands = CSVUtils.importCsv(new File(file));
-		CarBrand brand = null;
-		// 行数(表头的目录不需要，从1开始)
-		for (int i = 1; i < brands.size(); i++) {
-			brand = new CarBrand();
-			// 品牌ID
-			String[] splits = brands.get(i).split(",");
-			brand.setId(Integer.valueOf(splits[0].substring(1, splits[0].length() - 1)));
-			// 品牌名称
-			brand.setCarBrandName(splits[2]);
-			mCarBrands.add(brand);
-		}
+    private IAction mOldAction;
 
-		for (CarBrand carBrand : mCarBrands) {
-			System.out.println(carBrand);
-		}
-	}
+    public void setAction(IAction oldAction) {
+        this.mOldAction = oldAction;
+    }
 
-	public void readCarSet(String file) {
-		List<String> brands = CSVUtils.importCsv(new File(file));
-		CarSet set = null;
-		// 行数(表头的目录不需要，从1开始)
-		for (int i = 1; i < brands.size(); i++) {
-			set = new CarSet();
-			// 品牌ID
-			String[] splits = brands.get(i).split(",");
-			set.setId(Integer.valueOf(splits[0].substring(1, splits[0].length() - 1)));
-			// 品牌名称
-			set.setCarBrandId(Integer.valueOf(splits[2].substring(1, splits[2].length() - 1)));
-			set.setCarSetName(splits[3].substring(1, splits[3].length() - 1));
-			mCarSets.add(set);
-		}
+    public void readFile(String file) {
+        List<String> brands = CSVUtils.importCsv(new File(file));
+        CarDatas car = null;
+        String content = null;
+        int index = 0;
+        // 行数(表头的目录不需要，从1开始)
+        for (int i = 1; i < brands.size(); i++) {
+            car = new CarDatas();
+            String[] splits = brands.get(i).split(",");
+            /*
+             * 品牌ID/Name
+             */
+            index = 0;
+            content = splits[index];
+            car.setCarBrandId(Integer.valueOf(content.substring(1,
+                    content.length() - 1)));
+            index++;
+            content = splits[index];
+            car.setCarBrandName(content.substring(1, content.length() - 1));
 
-		for (CarSet carBrand : mCarSets) {
-			System.out.println(carBrand);
-		}
-	}
+            /*
+             * 车系ID/Name
+             */
+            index++;
+            content = splits[index];
+            car.setCarSetId(Integer.valueOf(content.substring(1,
+                    content.length() - 1)));
+            index++;
+            content = splits[index];
+            car.setCarSetName(content.substring(1, content.length() - 1));
+            /*
+             * 车型ID/Name
+             */
+            index++;
+            content = splits[index];
+            car.setCarTypeId(Integer.valueOf(content.substring(1,
+                    content.length() - 1)));
+            index++;
+            content = splits[index];
+            car.setCarTypeName(content.substring(1, content.length() - 1));
 
-	public void readCarType(String file) {
-		List<String> brands = CSVUtils.importCsv(new File(file));
-		CarType carType = null;
-		// 行数(表头的目录不需要，从1开始)
-		for (int i = 1; i < brands.size(); i++) {
-			carType = new CarType();
-			// 品牌ID
-			String[] splits = brands.get(i).split(",");
-			carType.setId(Integer.valueOf(splits[0].substring(1, splits[0].length() - 1)));
-			// 品牌名称
-			carType.setCarBrandId(Integer.valueOf(splits[2].substring(1, splits[2].length() - 1)));
-			carType.setCarSetId(Integer.valueOf(splits[3].substring(1, splits[3].length() - 1)));
-			carType.setCarTypeName(splits[5].substring(1, splits[5].length() - 1));
-			mCarTypes.add(carType);
-		}
+            mCarDatas.add(car);
+        }
 
-		for (CarType type : mCarTypes) {
-			System.out.println(type);
-		}
-	}
+        for (CarDatas carBrand : mCarDatas) {
+            System.out.println(carBrand);
+        }
+    }
+
+    public void startMatch() {
+        OldLibAction action = (OldLibAction) mOldAction;
+        List<QueryCarBillListVo> datas = action.getCellDatas();
+        List<QueryCarBillListVo> result = new ArrayList<QueryCarBillListVo>();
+        int size = 0;
+        for (QueryCarBillListVo data : datas) {
+            size = result.size();
+            for (CarDatas car : mCarDatas) {
+                if (car.getCarBrandName().equals(data.getCarBrandName())
+                        && car.getCarSetName().equals(data.getCarSetName())
+                        && car.getCarTypeName().equals(data.getCarTypeName())) {
+                    result.add(data);
+                }
+            }
+            if (size == result.size()) {
+                System.out.println(data);
+            }
+        }
+    }
 }
